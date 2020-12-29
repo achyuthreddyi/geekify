@@ -1,0 +1,19 @@
+.login {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: black;
+}
+.login__logo {
+  font-size: 100px;
+  color: whitesmoke;
+  font-family: 'Goldman', cursive;
+}
+.login > a {
+  padding: 20px;
+  border-radius: 99px;
+  background-color: #1db954;
+  font-weight: 800;
+  color: yellow;
+  text-decoration: none;
+}
