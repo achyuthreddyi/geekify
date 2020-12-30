@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import Login from './pages/login/Login'
+import Player from './pages/player/Player'
 import { getTokenFromUrl } from './spotify'
 
 function App () {
@@ -18,10 +19,6 @@ function App () {
     console.log('i have a token ', token)
   }, [token])
 
-  return (
-    <div className='app'>
-      <Login />
-    </div>
-  )
+  return <div className='app'>{token ? <Player /> : <Login />}</div>
 }
 export default App
