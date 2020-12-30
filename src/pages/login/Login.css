@@ -8,6 +8,15 @@
   font-size: 100px;
   color: whitesmoke;
   font-family: 'Goldman', cursive;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.login__logo:hover {
+  cursor: pointer;
 }
 .login > a {
   padding: 20px;
@@ -16,4 +25,10 @@
   font-weight: 800;
   color: yellow;
   text-decoration: none;
+}
+.login:hover {
+  cursor: pointer;
+}
+a:hover {
+  color: white;
 }
