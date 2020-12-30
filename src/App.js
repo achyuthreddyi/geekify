@@ -30,6 +30,13 @@ function App () {
           payload: user
         })
       })
+
+      spotify.getUserPlaylists().then(playlists => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          payload: playlists
+        })
+      })
     }
   }, [token])
 

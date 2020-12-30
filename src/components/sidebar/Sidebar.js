@@ -4,8 +4,12 @@ import SidebarOption from './SidebarOption'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
 import SearchIcon from '@material-ui/icons/Search'
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic'
+import { useStateValue } from '../../context/StateProvider'
 
 function Sidebar () {
+  const [{ playlists }, dispatch] = useStateValue()
+  console.log('playlists', playlists)
+
   return (
     <div className='sidebar'>
       <h1 className='sidebar__logo'>geekify</h1>
@@ -17,9 +21,10 @@ function Sidebar () {
       <br />
       <strong className='sidebar__title'>PLAYLISTS</strong>
       <hr />
-      <SidebarOption title='hiphop' />
-      <SidebarOption title='jazz' />
-      <SidebarOption title='carnatic' />
+
+      {playlists?.items?.map(playlist => (
+        <SidebarOption key={playlist.id} title={playlist.name} />
+      ))}
     </div>
   )
 }
