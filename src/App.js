@@ -9,12 +9,13 @@ import { useStateValue } from './context/StateProvider'
 const spotify = new SpotifyWebApi()
 
 function App () {
-  const [{ user, token }, dispatch] = useStateValue()
+  const [{ user, token, playlists }, dispatch] = useStateValue()
 
   useEffect(() => {
     const tokenObj = getTokenFromUrl()
     window.location.hash = ''
     const _token = tokenObj.access_token
+    // localStorage.setItem('tokenSpotify', _token)
 
     if (_token) {
       dispatch({
@@ -37,11 +38,18 @@ function App () {
           payload: playlists
         })
       })
+
+      spotify.getPlaylist('35aFWhZh3mka5RhE6nA3l9').then(response => {
+        dispatch({
+          type: 'SET_DISPLAY_WEEKLY',
+          payload: response
+        })
+      })
     }
   }, [token])
 
   console.log('user from the context api ', user)
-  console.log('i have a token ', token)
+  // console.log('i have a token ', playlists.items[0].id)
 
   return (
     <div className='app'>

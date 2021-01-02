@@ -3,9 +3,9 @@ export const initialState = {
   playlists: [],
   playing: false,
   songPlaying: null,
-  token:
-    'BQAXXTHbKW42ExtoiNw5fp_C-4b78t11_ZYDHm4arsjZG-q1xd7OgEnqe4XRgrUQw5AQnn2VPe8eLAQAvPkd6nZmCtsXN_jPstjXRvIFXH_CmosGD3euUQtTDXRZJh5rYdm2_PqX5OAm4uhMMCnWAlW-1Q7SgmXJ0hsPAFJHeH-IwCi-PMvI'
-  // token: null
+  // token:
+  // 'BQAXXTHbKW42ExtoiNw5fp_C-4b78t11_ZYDHm4arsjZG-q1xd7OgEnqe4XRgrUQw5AQnn2VPe8eLAQAvPkd6nZmCtsXN_jPstjXRvIFXH_CmosGD3euUQtTDXRZJh5rYdm2_PqX5OAm4uhMMCnWAlW-1Q7SgmXJ0hsPAFJHeH-IwCi-PMvI'
+  token: null
 }
 
 const reducer = (state, action) => {
@@ -18,6 +18,8 @@ const reducer = (state, action) => {
         user: action.payload
       }
     case 'SET_TOKEN':
+      // localStorage.setItem('tokenSpotify', action.payload)
+
       return {
         ...state,
         token: action.payload
@@ -26,6 +28,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         playlists: action.payload
+      }
+    case 'SET_DISPLAY_WEEKLY':
+      return {
+        ...state,
+        discoverWeekly: action.payload
       }
     default:
       return state
