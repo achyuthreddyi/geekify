@@ -5,6 +5,10 @@
   /* background-color: rgb(91, 87, 115); */
   background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
   color: white;
+  overflow-y: overlay;
+}
+.body::-webkit-scrollbar {
+  display: none;
 }
 .body__info {
   display: flex;

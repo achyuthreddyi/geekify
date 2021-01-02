@@ -9,7 +9,7 @@ import { useStateValue } from './context/StateProvider'
 const spotify = new SpotifyWebApi()
 
 function App () {
-  const [{ user, token, playlists }, dispatch] = useStateValue()
+  const [{ user, token }, dispatch] = useStateValue()
 
   useEffect(() => {
     const tokenObj = getTokenFromUrl()
@@ -39,7 +39,7 @@ function App () {
         })
       })
 
-      spotify.getPlaylist('35aFWhZh3mka5RhE6nA3l9').then(response => {
+      spotify.getPlaylist('37i9dQZF1DWZeKCadgRdKQ').then(response => {
         dispatch({
           type: 'SET_DISPLAY_WEEKLY',
           payload: response

@@ -1,6 +1,6 @@
 export const authEndpoint = 'https://accounts.spotify.com/authorize'
 
-const redirectUri = 'https://geekify-geekskool.netlify.app/'
+const redirectUri = 'http://localhost:3000/'
 const clientId = '3972c5a184e44c2f9728c2fad2ff204e'
 
 const scopes = [
