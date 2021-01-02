@@ -45,6 +45,8 @@ function App () {
           payload: response
         })
       })
+
+      // spotify.play({ uris: ['spotify:track:7JrSIPcfkWhDzxWII8Jz7V'] })
     }
   }, [token])
 

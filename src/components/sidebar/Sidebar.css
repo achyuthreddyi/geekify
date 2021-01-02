@@ -30,3 +30,7 @@
   font-size: 12px;
   text-align: center;
 }
+
+.sidebar__title:hover {
+  color: #040404;
+}

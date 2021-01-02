@@ -7,6 +7,34 @@ import SongRow from '../songRow/SongRow'
 
 function Body ({ spotify }) {
   const [{ user, discoverWeekly }, dispatch] = useStateValue()
+
+  const playPlayList = id => {
+    spotify
+      .play({
+        context_uri: 'spotify:playlist:37i9dQZEVXcJZyENOWUFo7'
+      })
+      .then(res => {
+        spotify.getMyCurrentPlayingTrack().then(r => {
+          console.log('current playing track ', r.item)
+        })
+      })
+      .catch(err => {
+        console.log('error in the playplaylists', err)
+      })
+  }
+
+  const playSong = id => {
+    spotify
+      .play({
+        uris: [`spotify:track:${id}`]
+      })
+      .then(res => {
+        spotify.getMyCurrentPlayingTrack().then(r => {
+          console.log('current playing track in the playsong method', r.item)
+        })
+      })
+  }
+
   console.log('discover weekly songs', discoverWeekly)
   return (
     <div className='body'>
@@ -23,14 +51,14 @@ function Body ({ spotify }) {
 
       <div className='body__songs'>
         <div className='body__icons'>
-          <PlayCircleFilled className='body__shuffle' />
+          <PlayCircleFilled className='body__shuffle' onClick={playPlayList} />
           <Favorite fontSize='large' />
           <MoreHoriz />
         </div>
         {/* list of songs */}
-        {discoverWeekly?.tracks?.items.map(item => (
-          <SongRow key={item.id} track={item.track} />
-        ))}
+        {/* {discoverWeekly?.tracks?.items.map(item => (
+          <SongRow key={item.id} playSong={playSong} track={item.track} />
+        ))} */}
       </div>
     </div>
   )
