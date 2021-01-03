@@ -5,7 +5,7 @@ import { Avatar } from '@material-ui/core'
 import { useStateValue } from '../../context/StateProvider'
 
 function Header ({ spotify }) {
-  const [{ user }, dispatch] = useStateValue()
+  const [{ user }] = useStateValue()
   return (
     <div className='header'>
       <div className='header__left'>

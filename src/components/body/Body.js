@@ -6,27 +6,30 @@ import { Favorite, MoreHoriz, PlayCircleFilled } from '@material-ui/icons'
 import SongRow from '../songRow/SongRow'
 
 function Body ({ spotify }) {
-  const [{ user, discoverWeekly }, dispatch] = useStateValue()
+  const [{ discoverWeekly }] = useStateValue()
 
-  const playPlayList = id => {
+  // "context_uri": "spotify:album:1Je1IMUlBXcx1Fz0WE7oPT"
+  // const playPlayList = id => {
+  //   spotify
+  //     .play({
+  //       context_uri: 'spotify:album:1Je1IMUlBXcx1Fz0WE7oPT'
+  //     })
+  //     .then(res => {
+  //       spotify.getMyCurrentPlayingTrack().then(r => {
+  //         console.log('current playing track ', r.item)
+  //       })
+  //     })
+  //     .catch(err => {
+  //       console.log('error in the playplaylists', err)
+  //     })
+  // }
+
+  const playSong = _ => {
+    console.log('in the playsong method')
     spotify
       .play({
-        context_uri: 'spotify:playlist:37i9dQZEVXcJZyENOWUFo7'
-      })
-      .then(res => {
-        spotify.getMyCurrentPlayingTrack().then(r => {
-          console.log('current playing track ', r.item)
-        })
-      })
-      .catch(err => {
-        console.log('error in the playplaylists', err)
-      })
-  }
-
-  const playSong = id => {
-    spotify
-      .play({
-        uris: [`spotify:track:${id}`]
+        // spotify:track:6rqhFgbbKwnb9MLmUQDhG6
+        context_uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
       })
       .then(res => {
         spotify.getMyCurrentPlayingTrack().then(r => {
@@ -51,14 +54,14 @@ function Body ({ spotify }) {
 
       <div className='body__songs'>
         <div className='body__icons'>
-          <PlayCircleFilled className='body__shuffle' onClick={playPlayList} />
+          <PlayCircleFilled className='body__shuffle' onClick={playSong} />
           <Favorite fontSize='large' />
           <MoreHoriz />
         </div>
         {/* list of songs */}
-        {/* {discoverWeekly?.tracks?.items.map(item => (
+        {discoverWeekly?.tracks?.items.map(item => (
           <SongRow key={item.id} playSong={playSong} track={item.track} />
-        ))} */}
+        ))}
       </div>
     </div>
   )

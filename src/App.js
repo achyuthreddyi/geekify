@@ -46,8 +46,9 @@ function App () {
         })
       })
 
-      // spotify.play({ uris: ['spotify:track:7JrSIPcfkWhDzxWII8Jz7V'] })
+      // spotif y.play({ uris: ['spotify:track:7JrSIPcfkWhDzxWII8Jz7V'] })
     }
+    // eslint-disable-next-line
   }, [token])
 
   console.log('user from the context api ', user)

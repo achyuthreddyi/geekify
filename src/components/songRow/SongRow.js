@@ -2,6 +2,7 @@ import React from 'react'
 import './SongRow.css'
 
 export default function SongRow ({ track }) {
+  console.log('track in the song Row componenet', track)
   return (
     <div className='songRow'>
       <img className='songRow__album' src={track.album.images[0].url} alt='' />
